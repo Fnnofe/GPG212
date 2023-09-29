@@ -56,11 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Prototype #1\CubeJumping.cs" />
-    <Compile Include="Assets\Andrei\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Andrei\Scripts\PlatformCollision.cs" />
-    <Compile Include="Assets\Andrei\Scripts\PlatformLogic.cs" />
     <Compile Include="Assets\Andrei\Scripts\Player.cs" />
+    <Compile Include="Assets\Andrei\Scripts\PlatformLogic.cs" />
+    <Compile Include="Assets\Prototype #1\CubeJumping.cs" />
+    <Compile Include="Assets\Andrei\Scripts\InnerCollision.cs" />
+    <Compile Include="Assets\Andrei\Scripts\PlatformCollision.cs" />
+    <Compile Include="Assets\Andrei\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Andrei\Scripts\JumpTest.cs" />
+    <Compile Include="Assets\Andrei\Scripts\TowerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
