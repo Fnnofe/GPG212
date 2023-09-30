@@ -371,7 +371,7 @@ MonoBehaviour:
   towerSegments:
   - {fileID: 1127811737}
   - {fileID: 2091639040}
-  - {fileID: 1127811737}
+  - {fileID: 7622612577729654195, guid: 591422274a79626409fa61744505b5f1, type: 3}
   segmentSize: 0
 --- !u!114 &950194126
 MonoBehaviour:
