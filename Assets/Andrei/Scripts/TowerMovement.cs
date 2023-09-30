@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TowerMovement : MonoBehaviour
 {
-    [SerializeField] List<GameObject> towerSegments;
+    public List<GameObject> towerSegments;
     [SerializeField] float rotationSpeed;
 
     [SerializeField] KeyCode turnLeft;
     [SerializeField] KeyCode turnRight;
+
+   // public bool isToucnhingVertical = false;
 
 
     // Start is called before the first frame update
@@ -20,11 +22,11 @@ public class TowerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(turnLeft))
+        if (Input.GetKey(turnLeft)) // && !isToucnhingVertical)
         {
             Rotate(RotationDirection.Left);
         }
-        if (Input.GetKey(turnRight))
+        if (Input.GetKey(turnRight)) // && !isToucnhingVertical)
         {
             Rotate(RotationDirection.Right);
         }
@@ -39,7 +41,7 @@ public class TowerMovement : MonoBehaviour
                 float rotationAmount = -rotationSpeed * Time.deltaTime;
                 for(int i = 0;i < towerSegments.Count; i++)
                 {
-                    transform.Rotate(Vector3.up * rotationAmount);
+                    towerSegments[i].transform.Rotate(Vector3.up * rotationAmount);
                 }
                 
                 break;
@@ -49,7 +51,7 @@ public class TowerMovement : MonoBehaviour
                
                 for (int i = 0; i < towerSegments.Count; i++)
                 {
-                    transform.Rotate(Vector3.up * rotationAmount);
+                    towerSegments[i].transform.Rotate(Vector3.up * rotationAmount);
                 }
 
                 break;

@@ -9,10 +9,11 @@ public class Player : MonoBehaviour
     GameManager gameManager;
 
     [SerializeField] float jumpMagnitude;
-    [SerializeField] List<GameObject> towerSegments;
-    [SerializeField] float rotationSpeed;
+  
 
     Rigidbody rb;
+
+    bool canJump = false;
 
 
     void Start()
@@ -44,10 +45,19 @@ public class Player : MonoBehaviour
         }
 
         // Simple jump for testing purposes
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            rb.AddForce(Vector3.up* jumpMagnitude, ForceMode.Impulse);
+            canJump= false;
+            Jump();
+           
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red; // Set the color of the raycast line.
+        Vector3 raycastOrigin = transform.position + Vector3.down * transform.localScale.y * 0.5f;
+        Gizmos.DrawRay(raycastOrigin, Vector3.down * 2f);
     }
 
     void ChangeColor()
@@ -79,6 +89,24 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
+   private void OnCollisionEnter(Collision collision)
+   {
+       Vector3 raycastOrigin = transform.position + Vector3.down * transform.localScale.y;
+       RaycastHit hit;
+        print("attempting Raycast");
+       if (Physics.Raycast(raycastOrigin, Vector3.down, out hit))
+       {
+           canJump= true;
+       }
+   }
+
+    void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpMagnitude, ForceMode.VelocityChange);
+    }
+
+
 }
 
 public enum PlayerState

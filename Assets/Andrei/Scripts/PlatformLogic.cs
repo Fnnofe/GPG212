@@ -18,11 +18,11 @@ public class PlatformLogic : MonoBehaviour
         {
             case PlatformType.Blue:
                 this.gameObject.GetComponent<Renderer>().material = gameManager.platformMaterials[0];
-                gameObject.layer = 7;
+                gameObject.layer = 6;
                 break;
             case PlatformType.Red:
                 this.gameObject.GetComponent<Renderer>().material = gameManager.platformMaterials[1];
-                gameObject.layer = 6;
+                gameObject.layer = 7;
                 break;
         }
     }
