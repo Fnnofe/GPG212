@@ -5,7 +5,8 @@ using UnityEngine;
 public class FloorMovement : MonoBehaviour
 {
     [SerializeField] float delayBeforeMoving;
-    [SerializeField] float verticalSpeed;
+    public float verticalSpeed;
+    public float maximumVerticalSpeed;
 
     bool startMoving = false;
 

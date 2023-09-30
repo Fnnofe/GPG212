@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         //Calls the method for changing the color
-        if (Input.GetKeyDown(KeyCode.LeftShift) && playerState == PlayerState.OutsidePlatform)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerState.OutsidePlatform)
         {
             ChangeColor();
         }

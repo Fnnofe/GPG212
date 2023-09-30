@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerType: 1
   playerState: 0
+  jumpMagnitude: 0
 --- !u!114 &135258555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +372,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 530183469}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &545763519
 BoxCollider:
@@ -628,7 +629,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1957633420}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &648916976
 MonoBehaviour:
@@ -853,7 +854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1120443043
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1174,6 +1175,10 @@ MonoBehaviour:
   platformMaterials:
   - {fileID: 2100000, guid: 4031db2d294ea8048a16689393dcd367, type: 2}
   - {fileID: 2100000, guid: caaaa9a1447360546921baf4d66dbcf9, type: 2}
+  score: {fileID: 0}
+  heightToScore: 0
+  heightToUpScore: 0
+  floorSpeedIncrement: 0
 --- !u!4 &1938892870
 Transform:
   m_ObjectHideFlags: 0

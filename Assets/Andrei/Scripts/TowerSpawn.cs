@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerSpawn : MonoBehaviour
 {
     TowerMovement towerMovement;
-    [SerializeField] GameObject towerSegment;
+    [SerializeField] List<GameObject> towerSegments;
     GameObject player;
 
     public float segmentSize;
@@ -17,7 +17,7 @@ public class TowerSpawn : MonoBehaviour
         player = GameObject.Find("Player");
         towerMovement = GetComponent<TowerMovement>();
         //segmentSize = towerSegment.GetComponent<Renderer>().bounds.max.y;
-        segmentSize = 2 * towerSegment.transform.localScale.y;
+        segmentSize = 2 * towerSegments[0].transform.localScale.y;
 
         spawnDistance= segmentSize * 3;
     }
@@ -34,9 +34,16 @@ public class TowerSpawn : MonoBehaviour
 
     void SpawnNewSegment()
     {
+        int rand = Random.Range(0, towerMovement.towerSegments.Count);
+
+        segmentSize = 2 * towerMovement.towerSegments[rand].transform.localScale.y;
         Vector3 spawnPosition = towerMovement.towerSegments[towerMovement.towerSegments.Count - 1].transform.position + new Vector3(0, segmentSize, 0);
 
-        towerMovement.towerSegments.Add(Instantiate(towerSegment, spawnPosition, Quaternion.identity));
+        float randAngle = Random.Range(0f, 180f);
+        Quaternion angle = Quaternion.Euler(0, randAngle, 0);
+        towerMovement.towerSegments.Add(Instantiate(towerMovement.towerSegments[rand], spawnPosition, angle));
+        
+
 
     }
 }
