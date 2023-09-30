@@ -8,10 +8,18 @@ public class Player : MonoBehaviour
     public PlayerState playerState;
     GameManager gameManager;
 
+    [SerializeField] float jumpMagnitude;
+  
+
+    Rigidbody rb;
+
+    bool canJump = false;
+
 
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        rb = GetComponent<Rigidbody>();
 
 
         switch (playerType)
@@ -30,10 +38,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && playerState == PlayerState.OutsidePlatform)
+        //Calls the method for changing the color
+        if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerState.OutsidePlatform)
         {
             ChangeColor();
         }
+
+        // Simple jump for testing purposes
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        {
+            canJump= false;
+            Jump();
+           
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red; // Set the color of the raycast line.
+        Vector3 raycastOrigin = transform.position + Vector3.down * transform.localScale.y * 0.5f;
+        Gizmos.DrawRay(raycastOrigin, Vector3.down * 2f);
     }
 
     void ChangeColor()
@@ -43,10 +67,12 @@ public class Player : MonoBehaviour
             case PlatformType.Blue:
                 this.gameObject.GetComponent<Renderer>().material = gameManager.platformMaterials[1];
                 playerType = PlatformType.Red;
+                gameObject.layer = 6;
                 break;
             case PlatformType.Red:
                 this.gameObject.GetComponent<Renderer>().material = gameManager.platformMaterials[0];
                 playerType = PlatformType.Blue;
+                gameObject.layer = 7;
                 break;
         }
     }
@@ -63,6 +89,24 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+
+   private void OnCollisionEnter(Collision collision)
+   {
+       Vector3 raycastOrigin = transform.position + Vector3.down * transform.localScale.y;
+       RaycastHit hit;
+        print("attempting Raycast");
+       if (Physics.Raycast(raycastOrigin, Vector3.down, out hit))
+       {
+           canJump= true;
+       }
+   }
+
+    void Jump()
+    {
+        rb.AddForce(Vector3.up * jumpMagnitude, ForceMode.VelocityChange);
+    }
+
+
 }
 
 public enum PlayerState

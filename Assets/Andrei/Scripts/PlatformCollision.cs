@@ -16,36 +16,38 @@ public class PlatformCollision : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        player.ChangeState();
-        
-    }
+   // void OnTriggerEnter(Collider other)
+   // {
+   //    // player.ChangeState();
+   //     CheckPlatform();
+   //     
+   // }
 
-    void OnTriggerStay(Collider other)
-    {
-        CheckPlatform();
-    }
+  //  void OnTriggerStay(Collider other)
+  //  {
+  //      CheckPlatform();
+  //  }
 
-    void OnTriggerExit(Collider other)
-    {
-        player.ChangeState();
-    }
+   // void OnTriggerExit(Collider other)
+   // {
+   //    // player.ChangeState();
+   //     CheckPlatform();
+   // }
 
-    void CheckPlatform()
-    {
-        playerType = player.playerType;
-        platformType = transform.parent.GetComponent<PlatformLogic>().platformType;
-
-       // print("Entered platform area, platform is " + platformType + " and player is " + playerType);
-
-        if (playerType != platformType)
-        {
-            transform.parent.GetComponent<Collider>().enabled = false;
-        }
-        else
-        {
-            transform.parent.GetComponent<Collider>().enabled = true;
-        }
-    }
+   // void CheckPlatform()
+   // {
+   //     playerType = player.playerType;
+   //     platformType = transform.parent.GetComponent<PlatformLogic>().platformType;
+   //
+   //    // print("Entered platform area, platform is " + platformType + " and player is " + playerType);
+   //
+   //     if (playerType != platformType)
+   //     {
+   //         transform.parent.GetComponent<Collider>().enabled = false;
+   //     }
+   //     else
+   //     {
+   //         transform.parent.GetComponent<Collider>().enabled = true;
+   //     }
+   // }
 }
