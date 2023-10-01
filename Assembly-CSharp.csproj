@@ -62,7 +62,6 @@
     <Compile Include="Assets\Andrei\Scripts\VerticalPlatformLogic.cs" />
     <Compile Include="Assets\Prototype #1\CubeJumping.cs" />
     <Compile Include="Assets\Andrei\Scripts\PlayerRotation.cs" />
-    <Compile Include="Assets\Menus\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Menus\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Andrei\Scripts\TowerSpawn.cs" />
     <Compile Include="Assets\Andrei\Scripts\TowerMovement.cs" />
