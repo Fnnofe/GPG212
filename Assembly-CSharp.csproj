@@ -57,20 +57,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Andrei\Scripts\Player.cs" />
+    <Compile Include="Assets\Menus\Scripts\StartGame.cs" />
     <Compile Include="Assets\Andrei\Scripts\PlatformLogic.cs" />
     <Compile Include="Assets\Andrei\Scripts\VerticalPlatformLogic.cs" />
     <Compile Include="Assets\Prototype #1\CubeJumping.cs" />
     <Compile Include="Assets\Andrei\Scripts\PlayerRotation.cs" />
+    <Compile Include="Assets\Menus\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Menus\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Andrei\Scripts\TowerSpawn.cs" />
     <Compile Include="Assets\Andrei\Scripts\TowerMovement.cs" />
     <Compile Include="Assets\Andrei\Scripts\InnerCollision.cs" />
     <Compile Include="Assets\Andrei\Scripts\PlatformCollision.cs" />
     <Compile Include="Assets\Andrei\Scripts\GameManager.cs" />
     <Compile Include="Assets\Andrei\Scripts\FloorMovement.cs" />
-    <Compile Include="Assets\Andrei\Scripts\JumpTest.cs" />
-    <Compile Include="Assets\Menus\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Menus\Scripts\StartGame.cs" />
     <Compile Include="Assets\Menus\Scripts\CloseGame.cs" />
+    <Compile Include="Assets\Andrei\Scripts\JumpTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
